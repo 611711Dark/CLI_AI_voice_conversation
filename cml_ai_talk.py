@@ -13,7 +13,7 @@ import soundfile as sf
 from fuzzywuzzy import fuzz
 
 # 初始化 OpenAI 客户端
-client = OpenAI(api_key="<your-api>", base_url="<base-url>")
+client = OpenAI(api_key="api_key", base_url="base_url")
 
 # 初始化 Whisper 模型
 whisper_model = WhisperModel("faster-whisper-base", device="cpu", compute_type="int8")
@@ -48,7 +48,7 @@ async def get_model_response(prompt):
     try:
         # 调用DeepSeek的ChatCompletion API获取AI响应
         response = client.chat.completions.create(
-            model="deepseek-chat",
+            model="llama-3.3-70b",
             messages=conversation_history,
             max_tokens=100,
             stream=False
